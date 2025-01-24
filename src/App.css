@@ -1,12 +1,19 @@
 * {
   margin: 0px;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+body {
+  font-family: Arial, sans-serif;
+}
+
 .clock-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #282c34;
+  background: linear-gradient(135deg, #282c34, #3a3f47);
 }
 
 .clock {
@@ -16,4 +23,11 @@
   background-color: #20232a;
   padding: 20px 40px;
   border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.clock:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }

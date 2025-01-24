@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
-function App() {
+function useCurrentTime() {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -9,12 +9,18 @@ function App() {
     return () => clearInterval(timerId);
   }, []);
 
-  const formattedTime = time.toLocaleTimeString("en-US", {
+  return time;
+}
+
+function App() {
+  const time = useCurrentTime();
+
+  const formattedTime = new Intl.DateTimeFormat("en-US", {
     hour: "2-digit",
     minute: "2-digit",
     second: "2-digit",
     hour12: true,
-  });
+  }).format(time);
 
   return (
     <div className="clock-container">
